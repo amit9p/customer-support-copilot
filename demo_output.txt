@@ -1,0 +1,41 @@
+Question : Can I return an opened laptop on day 8 if I have the original box and all accessories?
+Routing  : intents=['policy'] -> indexes=['policy_index']
+Answer   : Yes—opened laptops can be returned within 10 days of delivery. It must be in good condition, have no physical damage, and include the original box, all accessories, manuals, and the invoice.
+Sources  : RR-002
+
+Question : My Galaxy Buds3 Pro left earbud won't connect. Is this a known issue, and has the same problem been resolved for another customer? What fixed it?
+Routing  : intents=['product', 'past_issue'] -> indexes=['product_index', 'ticket_index']
+Answer   : Yes. This is a known Galaxy Buds3 Pro issue. Another customer had the same problem after switching phones; resetting the earbuds and pairing them again as a new device fixed it. To try this, place both earbuds in the case, close the lid for 10 seconds, then reset them in the Galaxy Wearable app or hold both touchpads for 7 seconds and pair again.
+Sources  : KI-001, TCK-1001
+
+Question : How long does delivery take to a remote pincode, and is it free?
+Routing  : intents=['policy'] -> indexes=['policy_index']
+Answer   : Delivery to a remote pincode takes 5–9 business days. It’s free for orders of Rs 499 or more; otherwise, normal delivery charges apply (Rs 49).
+Sources  : SH-002, SH-001
+
+Question : A customer wants to change the address after the order shipped. What is the official process, and do we have a resolved case like this?
+Routing  : intents=['order', 'past_issue'] -> indexes=['order_index', 'ticket_index']
+Answer   : After shipping, the address cannot be changed by Dandes Electronics or support. The customer can ask the courier to reschedule delivery to the same address, or refuse delivery and place a new order with the correct address. A resolved case followed this process: the customer refused delivery, placed a new order, and received a refund after the original package reached the warehouse.
+Sources  : OG-002, TCK-1004
+
+Question : What does policy RR-004 say?
+Routing  : intents=['policy'] -> indexes=['policy_index']
+Answer   : Refunds begin after the returned product passes the quality check:
+
+- UPI and wallet: 1–3 business days.
+- Credit/debit cards and net banking: 5–7 business days.
+- Cash on Delivery: 5–7 business days after bank details are added on the Orders page.
+- EMI: refunded to the card; the bank closes the EMI plan.
+Sources  : RR-004
+
+Question : A customer received a damaged phone and wants a refund instead of a replacement. What is the official process, and do we have a previous resolved case where a refund was issued?
+Routing  : intents=['policy', 'order', 'past_issue'] -> indexes=['policy_index', 'order_index', 'ticket_index']
+Answer   : Report the damage within 48 hours of delivery: open the order on the Orders page and select **Report a Problem**. Upload photos of the phone, box and shipping label; include an unboxing video if available. Pickup is scheduled within 2 business days, followed by a quality check. For a phone, a refund is available only if a replacement unit is unavailable; if the same model is out of stock, the customer can choose a refund or a different colour of that model.
+
+Yes. In a resolved iPhone 16 case, the phone arrived with a cracked screen and a refund was issued after the quality check confirmed damage and a replacement in the same colour was unavailable.
+Sources  : RR-003, OG-005, RR-005, TCK-1002
+
+Question : Do you sell refrigerators?
+Routing  : intents=['out_of_scope'] -> indexes=none
+Answer   : I don't know based on the available information.
+Sources  : none

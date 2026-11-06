@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[requires]
+python_version = "3.12"
+
+[packages]
+python-dotenv = "*"
+langchain = "*"
+langchain-core = "*"
+langchain-openai = "*"
+langchain-chroma = "*"
+langchain-community = "*"
+chromadb = "*"
+rank-bm25 = "*"
+sentence-transformers = "*"
+ragas = "*"
+pandas = "*"
+pillow = "*"
+
+[dev-packages]

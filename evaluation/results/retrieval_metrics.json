@@ -1,0 +1,26 @@
+{
+  "V1 (basic)": {
+    "Routing Accuracy": "n/a",
+    "Precision@5": 0.325,
+    "Recall@5": 0.894,
+    "Coverage (multi-source)": 0.9,
+    "Refusal Accuracy": 0.75,
+    "False Refusals": 1
+  },
+  "V2 (single index)": {
+    "Routing Accuracy": "n/a",
+    "Precision@5": 0.338,
+    "Recall@5": 0.975,
+    "Coverage (multi-source)": 0.943,
+    "Refusal Accuracy": 0.75,
+    "False Refusals": 0
+  },
+  "V2 (multi-index + routing)": {
+    "Routing Accuracy": 1.0,
+    "Precision@5": 0.35,
+    "Recall@5": 0.988,
+    "Coverage (multi-source)": 0.971,
+    "Refusal Accuracy": 1.0,
+    "False Refusals": 0
+  }
+}

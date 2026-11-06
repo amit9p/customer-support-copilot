@@ -1,0 +1,329 @@
+[
+  {
+    "id": "Q01",
+    "question": "Can I return an opened laptop on day 8 if I have the original box and all accessories?",
+    "answer": "Under the policy effective 1 July 2026, yes\u2014opened laptops can be returned within 10 days if they\u2019re in good condition, undamaged, and include the original box, all accessories, manuals, and invoice.",
+    "sources": [
+      "RR-002",
+      "TCK-1003"
+    ],
+    "retrieved_ids": [
+      "TCK-1014",
+      "RR-002",
+      "TCK-1003",
+      "RR-001",
+      "RR-003"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q02",
+    "question": "My Galaxy Buds3 Pro left earbud won't connect. Is this a known issue, and has the same problem been resolved for another customer? What fixed it?",
+    "answer": "Yes. This is a known issue, and another customer\u2019s case was resolved. Put both earbuds in the case and close the lid for 10 seconds, reset them in the Galaxy Wearable app or by holding both touchpads for 7 seconds, then pair again as a new device.",
+    "sources": [
+      "KI-001",
+      "TCK-1001"
+    ],
+    "retrieved_ids": [
+      "TCK-1001",
+      "KI-001",
+      "FAQ-011",
+      "TCK-1011",
+      "KI-002"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q03",
+    "question": "How long does delivery take to a remote pincode, and is it free?",
+    "answer": "Delivery to a remote pincode takes 5\u20139 business days. Normal delivery charges apply; orders of Rs 499 or more ship free.",
+    "sources": [
+      "SH-002"
+    ],
+    "retrieved_ids": [
+      "SH-002",
+      "TCK-1005",
+      "SH-001",
+      "SH-004",
+      "FAQ-007"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q04",
+    "question": "A customer wants to change the address after the order shipped. What is the official process, and do we have a resolved case like this?",
+    "answer": "After shipping, the address cannot be changed. The customer can ask the courier to reschedule delivery to the same address, or refuse delivery and place a new order with the correct address; the refusal refund follows policy SH-005.\n\nYes. In a resolved case, the customer refused delivery, placed a new order with the correct address, and received a refund after the package reached the warehouse.",
+    "sources": [
+      "OG-002",
+      "TCK-1004"
+    ],
+    "retrieved_ids": [
+      "TCK-1004",
+      "OG-002",
+      "OG-001",
+      "OG-003",
+      "OG-005"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q05",
+    "question": "What does policy RR-004 say?",
+    "answer": "Refunds begin after the returned product passes the quality check:\n\n- UPI and wallets: 1\u20133 business days.\n- Credit/debit cards and net banking: 5\u20137 business days.\n- Cash on Delivery: 5\u20137 business days after bank details are added on the Orders page.\n- EMI: refunded to the card; the bank closes the EMI plan.",
+    "sources": [
+      "RR-004"
+    ],
+    "retrieved_ids": [
+      "RR-004",
+      "OG-001",
+      "OG-005",
+      "TCK-1011",
+      "TCK-1002"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q06",
+    "question": "A customer received a damaged phone and wants a refund instead of a replacement. What is the official process, and do we have a previous resolved case where a refund was issued?",
+    "answer": "Under the policies effective 1 July 2026, report the damage within 48 hours using **Report a Problem** on the Orders page. Provide photos of the phone and box, plus an unboxing video if available. After pickup and a quality check, the phone can be replaced; a refund is available only if a replacement unit is unavailable.\n\nYes. In a resolved iPhone 16 case, the customer reported the damage within 48 hours and provided photos and an unboxing video. After pickup and quality check, a refund was issued because a replacement in the same colour was unavailable.",
+    "sources": [
+      "RR-003",
+      "RR-001",
+      "TCK-1002"
+    ],
+    "retrieved_ids": [
+      "TCK-1002",
+      "RR-003",
+      "RR-005",
+      "TCK-1011",
+      "RR-001"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q07",
+    "question": "Do you sell refrigerators?",
+    "answer": "I don't know based on the available information.",
+    "sources": [],
+    "retrieved_ids": [
+      "FAQ-002",
+      "FAQ-001",
+      "RR-005",
+      "RR-002",
+      "RR-001"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q08",
+    "question": "Can I use Cash on Delivery for a Rs 60,000 laptop?",
+    "answer": "No. Cash on Delivery is available only for orders up to Rs 50,000; the Rs 60,000 laptop must be paid for online.",
+    "sources": [
+      "SH-004"
+    ],
+    "retrieved_ids": [
+      "SH-004",
+      "SH-003",
+      "TCK-1012",
+      "SH-005",
+      "TCK-1006"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q09",
+    "question": "Which cities have express delivery, what does it cost, and is it free above Rs 499?",
+    "answer": "Express delivery is available in Bengaluru, Chennai, Delhi NCR, Hyderabad, Mumbai, and Pune. It costs Rs 149 per order and is not free for orders above Rs 499.",
+    "sources": [
+      "SH-003"
+    ],
+    "retrieved_ids": [
+      "SH-003",
+      "SH-001",
+      "SH-002",
+      "SH-004",
+      "TCK-1012"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q10",
+    "question": "Does the iPhone 16 come with a charger, and will the Anker 20W charger fast-charge it?",
+    "answer": "No. The iPhone 16 includes a USB-C to USB-C cable, but no power adapter. The Anker 20W USB-C charger will fast-charge it when used with that cable.",
+    "sources": [
+      "FAQ-001",
+      "FAQ-012"
+    ],
+    "retrieved_ids": [
+      "FAQ-012",
+      "FAQ-001",
+      "KI-004",
+      "TCK-1006",
+      "TCK-1008"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q11",
+    "question": "A customer's MacBook Air M3 shows 'Not Charging' with a phone charger. Is this a known issue, and have we resolved it for someone before?",
+    "answer": "Yes. A phone charger may be too low-wattage for the MacBook Air M3. Recommend the supplied Apple charger or a USB-C PD charger rated 30W or higher; a 20W phone charger may not charge it while in use. We\u2019ve resolved this for another customer using a 20W charger, who charged normally after switching chargers.",
+    "sources": [
+      "KI-004",
+      "TCK-1008"
+    ],
+    "retrieved_ids": [
+      "TCK-1008",
+      "KI-004",
+      "TCK-1007",
+      "TCK-1014",
+      "KI-002"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q12",
+    "question": "Do AirPods Pro 2 work with Android phones, and what should a customer do if one earbud isn't charging in the case?",
+    "answer": "Yes. AirPods Pro 2 connect to Android phones as Bluetooth earbuds for music and calls, but features such as automatic switching and iOS setup require Apple devices.\n\nIf one earbud isn\u2019t charging, gently clean the earbud and case contacts with a dry cotton swab and make sure the earbud sits fully in the case. If it still doesn\u2019t charge, raise an Apple warranty claim.",
+    "sources": [
+      "FAQ-009",
+      "KI-002"
+    ],
+    "retrieved_ids": [
+      "FAQ-009",
+      "KI-002",
+      "KI-001",
+      "TCK-1001",
+      "FAQ-011"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q13",
+    "question": "A customer says payment failed but money was deducted. What should the support team tell them?",
+    "answer": "No order was created. The bank usually reverses the deducted amount within 5\u20137 business days. Check the payment status, and if the reversal takes longer, share the transaction reference with the customer.",
+    "sources": [
+      "OG-004",
+      "TCK-1010"
+    ],
+    "retrieved_ids": [
+      "OG-004",
+      "TCK-1010",
+      "SH-005",
+      "TCK-1006",
+      "RR-004"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q14",
+    "question": "Tracking hasn't updated for 5 business days. What should support do, and has this happened before?",
+    "answer": "Raise a courier escalation because tracking has been unchanged for more than 3 business days. Yes\u2014this happened before after 4 business days; support escalated it, and the package was delivered within 2 days.",
+    "sources": [
+      "OG-003",
+      "TCK-1013"
+    ],
+    "retrieved_ids": [
+      "OG-003",
+      "TCK-1013",
+      "OG-004",
+      "TCK-1005",
+      "TCK-1006"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q15",
+    "question": "Have we had a case where a Cash on Delivery refund was not received? What was the root cause?",
+    "answer": "Yes. The customer had not added bank details on the Orders page, so the COD refund was delayed.",
+    "sources": [
+      "TCK-1006"
+    ],
+    "retrieved_ids": [
+      "TCK-1006",
+      "TCK-1012",
+      "TCK-1002",
+      "SH-005",
+      "TCK-1005"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q16",
+    "question": "If a replacement unit is also defective, what does the policy say, and do we have a past case like that?",
+    "answer": "If the replacement unit is also defective, the customer gets a full refund. Yes\u2014this happened with a Galaxy S25: the replacement had a display flicker, and a full refund was issued by UPI within 2 business days.",
+    "sources": [
+      "RR-005",
+      "TCK-1011"
+    ],
+    "retrieved_ids": [
+      "RR-005",
+      "TCK-1011",
+      "RR-003",
+      "RR-001",
+      "OG-005"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q17",
+    "question": "A prepaid order has already shipped and the customer wants to cancel it. What can they do, and how is the refund handled?",
+    "answer": "The order cannot be cancelled once shipped. The customer can refuse delivery; for a prepaid order, a full refund is issued once the package reaches the warehouse.",
+    "sources": [
+      "OG-001",
+      "SH-005"
+    ],
+    "retrieved_ids": [
+      "OG-001",
+      "SH-005",
+      "TCK-1004",
+      "OG-002",
+      "OG-005"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q18",
+    "question": "Is there a Diwali discount coupon I can give the customer?",
+    "answer": "I don't know based on the available information.",
+    "sources": [],
+    "retrieved_ids": [
+      "TCK-1012",
+      "KI-008",
+      "SH-002",
+      "TCK-1006",
+      "TCK-1010"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q19",
+    "question": "Can a customer pay with cryptocurrency?",
+    "answer": "I don't know based on the available information.",
+    "sources": [],
+    "retrieved_ids": [
+      "OG-004",
+      "KI-008",
+      "TCK-1012",
+      "TCK-1010",
+      "TCK-1006"
+    ],
+    "routing": null
+  },
+  {
+    "id": "Q20",
+    "question": "Do you repair cracked TV screens?",
+    "answer": "No. Dandes Electronics does not repair products directly. If the TV arrived with a cracked screen, report it within 48 hours through **Orders \u2192 Report a Problem**, with photos and an unboxing video if available.",
+    "sources": [
+      "OG-006",
+      "RR-003"
+    ],
+    "retrieved_ids": [
+      "TCK-1002",
+      "KI-008",
+      "TCK-1011",
+      "OG-006",
+      "RR-003"
+    ],
+    "routing": null
+  }
+]

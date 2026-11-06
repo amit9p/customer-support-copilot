@@ -1,0 +1,12 @@
+python-dotenv
+langchain
+langchain-core
+langchain-openai
+langchain-chroma
+langchain-community
+chromadb
+rank-bm25
+sentence-transformers
+ragas
+pandas
+pillow

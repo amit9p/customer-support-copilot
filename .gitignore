@@ -1,0 +1,20 @@
+# Secrets - never submit
+.env
+
+# Virtual environment
+.venv/
+
+# Chroma database - never submit
+chroma_db/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS / editor noise
+Thumbs.db
+.DS_Store
+
+# Downloaded reranker model
+.hf_cache/

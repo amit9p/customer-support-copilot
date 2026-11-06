@@ -1,0 +1,23 @@
+{
+  "V1 (basic)": {
+    "Faithfulness (own judge)": 0.925,
+    "Faithfulness (RAGAS)": 1.0,
+    "Answer Relevancy": 0.708,
+    "Context Precision": 0.889,
+    "Context Recall": 0.875
+  },
+  "V2 (single index)": {
+    "Faithfulness (own judge)": 0.988,
+    "Faithfulness (RAGAS)": 1.0,
+    "Answer Relevancy": 0.714,
+    "Context Precision": 0.957,
+    "Context Recall": 0.933
+  },
+  "V2 (multi-index + routing)": {
+    "Faithfulness (own judge)": 0.972,
+    "Faithfulness (RAGAS)": 1.0,
+    "Answer Relevancy": 0.708,
+    "Context Precision": 0.984,
+    "Context Recall": 0.946
+  }
+}
