@@ -1,15 +1,7 @@
 """
-Retrieval metrics - did we fetch the RIGHT documents, and did the router/refusal behave?
-
-    Precision@5      relevant docs in top 5 / 5                  (in-scope questions)
-    Recall@5         relevant docs in top 5 / expected sources   (in-scope questions)
-    Coverage         same as recall, but only on multi-source questions (2+ indexes)
-    Routing Accuracy router searched all expected indexes and at most one extra;
-                     out-of-scope is correct only if the router said out_of_scope
-    Refusal Accuracy % of out-of-scope questions answered with the exact IDK sentence
-    False Refusals   number of in-scope questions wrongly answered with IDK
-
-Run:  python evaluation/2_retrieval_metrics.py
+Retrieval metrics: Precision@5, Recall@5, Coverage (multi-source questions only),
+Routing Accuracy, Refusal Accuracy, False Refusals. Definitions follow the assignment.
+Run: python evaluation/2_retrieval_metrics.py
 """
 import json
 import sys

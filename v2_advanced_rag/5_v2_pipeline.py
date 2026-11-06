@@ -1,16 +1,9 @@
 """
-V2 pipeline - all four techniques combined on the single 'dandes_v1' collection.
-This is the version evaluated as "V2 (single index)".
-
-Order of steps (and why):
-  1. Multi-query        - widen the net first: 4 versions of the question
-  2. Hybrid search      - dense + BM25 for EACH version, all lists merged with one RRF
-  3. Metadata filter    - as a SOFT boost: a filtered dense search is one more list in the RRF.
-                          A hard filter would break multi-part questions (policy + guide + ticket).
-  4. Rerank             - cross-encoder scores the top 20 candidates, keep 5 (exact-ID hits stay pinned)
-  5. Answer             - "latest date wins" rule added to the prompt
-
-Run:  python v2_advanced_rag/5_v2_pipeline.py
+V2 pipeline (single index) - the four techniques combined on 'dandes_v1'.
+Step order: multi-query -> hybrid search per query (one RRF) -> metadata filter as a soft
+boost -> cross-encoder rerank top 20 to 5 -> answer with the "latest date wins" rule.
+See report.md Q3 for why this order.
+Run: python v2_advanced_rag/5_v2_pipeline.py
 """
 import sys
 from pathlib import Path

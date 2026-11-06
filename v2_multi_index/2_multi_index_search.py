@@ -1,18 +1,8 @@
 """
-Multi-index SEARCH - query one index, or several together, with one global rerank.
-
-    selected indexes --> each: dense + BM25 -> RRF (top N candidates per index)
-                     --> merge all candidates
-                     --> ONE cross-encoder rerank across everything
-                     --> top 5
-
-Why rerank once globally (not per index)? Scores from different indexes aren't comparable
-(a #1 in ticket_index may be weaker than a #3 in policy_index). The cross-encoder gives every
-candidate the same yardstick: relevance to the question.
-
-In this file the index choice is made BY HAND. File 3 makes the copilot choose.
-
-Run:  python v2_multi_index/2_multi_index_search.py
+Multi-index search (index chosen by hand).
+Each selected index is searched with hybrid search (dense + BM25 -> RRF). The candidates
+from all selected indexes are merged and reranked once with the cross-encoder, keep top 5.
+Run: python v2_multi_index/2_multi_index_search.py
 """
 import pickle
 import sys
@@ -60,9 +50,8 @@ class MultiIndexSearcher:
         pinned = [d for d in candidates if d in sum((self.bm25[i].pinned(question) for i in indexes), [])]
         ranked = rerank(question, [d for d in candidates if d not in pinned], len(candidates))  # one global rerank
 
-        # Coverage guarantee: when several indexes were routed, each index keeps its best doc in the
-        # top k, then the remaining slots are filled by global rank. Without this, a 3-index question
-        # (policy + order + ticket) can end up with zero order_guide docs in the top 5.
+        # when several indexes were routed, each keeps its best doc in the top k, then fill by global rank
+        # (without this Q06 got no order_guide doc in the top 5)
         final = list(pinned)
         if len(indexes) > 1:
             for name in indexes:

@@ -1,15 +1,7 @@
 """
-Run the 20 golden questions through every pipeline version and save the raw outputs.
-
-    evaluation/results/v1_results.json
-    evaluation/results/v2_single_index_results.json
-    evaluation/results/v2_multi_index_results.json
-
-Each pipeline file exposes  run(question) -> {"answer", "sources", "retrieved_ids", "routing"}.
-Versions whose file is not written yet are skipped, so this can be run early for the V1 baseline.
-
-Run:  python evaluation/1_run_versions.py            (all available versions)
-      python evaluation/1_run_versions.py v1          (one version)
+Runs the 20 golden questions through each version and saves the raw outputs to
+evaluation/results/. Each pipeline exposes run(question) -> {answer, sources, retrieved_ids, routing}.
+Run: python evaluation/1_run_versions.py [v1|v2_single|v2_multi]
 """
 import importlib.util
 import json

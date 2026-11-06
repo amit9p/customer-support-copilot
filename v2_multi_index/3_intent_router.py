@@ -1,18 +1,9 @@
 """
-INTENT-BASED QUERY ROUTING - the copilot decides which index(es) to search.
-
-    question --> LLM classifies intents --> JSON {intents, indexes, reason}
-
-    policy       rules: returns, refunds, delivery, charges, COD          -> policy_index
-    product      product questions and known problems                    -> product_index
-    order        how to do something with an order                       -> order_index
-    past_issue   "has this happened before?", resolved cases             -> ticket_index
-    out_of_scope anything the store doesn't cover                        -> (none)
-
-Safety rules: output must be valid JSON; if the LLM fails or returns junk, fall back to
-ALL 4 indexes. The copilot must never crash because of the router.
-
-Run:  python v2_multi_index/3_intent_router.py      (tests the router on the 7 test questions)
+Intent router.
+The LLM classifies a question into intents (policy, product, order, past_issue, out_of_scope)
+and Python maps intents to indexes. Returns JSON {intents, indexes, reason}.
+If the LLM fails or returns bad JSON, all 4 indexes are searched. Never raises.
+Run: python v2_multi_index/3_intent_router.py   (tests the router on the 7 test questions)
 """
 import json
 import sys

@@ -1,16 +1,10 @@
 """
-V2 MULTI-INDEX + ROUTING pipeline - the final copilot.
-This is the version evaluated as "V2 (multi-index + routing)".
-
-    route --> hybrid search in each chosen index --> merge --> one global rerank --> top 5 --> answer
-
-    out_of_scope  -> skip retrieval, reply with the fixed "I don't know" sentence
-    router failure -> search all 4 indexes (never crash)
-
+V2 multi-index + routing pipeline (final version).
+route -> hybrid search in each chosen index -> merge -> one global rerank -> top 5 -> answer.
+out_of_scope skips retrieval and returns the fixed "I don't know" sentence.
 The routing decision is printed before every answer.
-
-Run:  python v2_multi_index/4_v2_multi_index_pipeline.py            (7 test questions)
-      python v2_multi_index/4_v2_multi_index_pipeline.py --save     (also writes demo_output.txt)
+Run: python v2_multi_index/4_v2_multi_index_pipeline.py          (7 test questions)
+     python v2_multi_index/4_v2_multi_index_pipeline.py --save   (also writes demo_output.txt)
 """
 import sys
 from pathlib import Path

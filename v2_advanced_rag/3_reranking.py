@@ -1,15 +1,8 @@
 """
-V2 technique 3 - RERANKING with a cross-encoder
-
-Two-stage retrieval, like hiring:
-  stage 1 (cheap, wide)   : embeddings screen 50 CVs down to a shortlist of 20
-  stage 2 (slow, careful) : a cross-encoder "interviews" each of the 20 against the question
-                            and keeps the best 5
-
-Embeddings compare question and doc SEPARATELY (two vectors). A cross-encoder reads them
-TOGETHER, so it notices things like "damaged phone + refund" needing RR-003 AND RR-004.
-
-Run:  python v2_advanced_rag/3_reranking.py
+V2 technique 3: reranking.
+Retrieve the top 20 by embedding, score each (question, document) pair with a cross-encoder,
+keep the best 5. Prints before vs after for the demo question.
+Run: python v2_advanced_rag/3_reranking.py
 """
 import sys
 from pathlib import Path
@@ -22,8 +15,8 @@ from config import RERANK_CANDIDATES, TOP_K
 
 def retrieve_and_rerank(question: str, store=None, k: int = TOP_K):
     store = store or get_v1_store()
-    candidates = store.similarity_search(question, k=RERANK_CANDIDATES)   # stage 1: top 20
-    return rerank(question, candidates, k)                                 # stage 2: best 5
+    candidates = store.similarity_search(question, k=RERANK_CANDIDATES)   # top 20
+    return rerank(question, candidates, k)                                 # best 5
 
 
 if __name__ == "__main__":

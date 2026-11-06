@@ -1,13 +1,8 @@
 """
-V2 technique 1 - METADATA FILTERING
-
-Idea: narrow the shelf BEFORE searching. If the question is clearly about known issues
-with the Galaxy Buds3 Pro, only search docs where doc_type=known_issue and/or
-product="Galaxy Buds3 Pro". Fewer wrong candidates -> better top 5.
-
-    question --> LLM extracts a filter {doc_type, product, category} --> Chroma search WITH filter
-
-Run:  python v2_advanced_rag/1_metadata_filtering.py
+V2 technique 1: metadata filtering.
+The LLM extracts doc_type / product / category from the question and Chroma searches only
+documents matching that filter. Prints before vs after for the demo question.
+Run: python v2_advanced_rag/1_metadata_filtering.py
 """
 import json
 import sys

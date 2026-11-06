@@ -1,9 +1,6 @@
 """
-Combine retrieval + generation metrics into one table for all 3 versions.
-
-    -> evaluation/comparison_table.csv
-
-Run:  python evaluation/4_comparison_table.py
+Builds evaluation/comparison_table.csv from the retrieval and generation metrics.
+Run: python evaluation/4_comparison_table.py
 """
 import json
 import sys

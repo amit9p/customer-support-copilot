@@ -1,9 +1,6 @@
 """
-Shared helpers used by every pipeline file, so each file shows only its own idea.
-
-    get_v1_store()            -> the Chroma collection built by the offline pipeline
-    format_context(docs)      -> turns retrieved documents into text for the prompt
-    generate_answer(q, docs)  -> asks the LLM, returns (answer_text, [source ids])
+Helpers shared by all pipeline files: Chroma access, prompt building, answer generation,
+BM25 index, Reciprocal Rank Fusion, cross-encoder reranking.
 """
 from __future__ import annotations
 
@@ -35,7 +32,7 @@ def get_v1_store() -> Chroma:
 
 
 def format_context(docs: list[Document]) -> str:
-    """Each document becomes a block that starts with its ID, so the LLM can cite it."""
+    """Format retrieved docs as text blocks that start with the doc ID."""
     blocks = []
     for d in docs:
         m = d.metadata
@@ -133,11 +130,9 @@ def _tokenize(text: str) -> list[str]:
 
 
 class BM25Index:
-    """Keyword search. Scores a doc by how many query words it contains (weighted by rarity).
-
-    Bug found during V2: for "What does policy RR-004 say?" plain BM25 ranked OG-001 first, because
-    OG-001 *mentions* RR-004 and repeats "policy", while RR-004 itself is a long doc (BM25 penalises
-    length). Fix: an exact-ID rule - if a query token equals a document ID, that doc is pinned to the top.
+    """BM25 keyword search over the documents.
+    Exact-ID rule: if a query token equals a document ID (e.g. rr-004) that doc is pinned to the
+    top - plain BM25 ranked OG-001 above RR-004 for "What does policy RR-004 say?" (see report Q2).
     """
 
     def __init__(self, docs: list[Document]) -> None:
@@ -159,8 +154,7 @@ class BM25Index:
 
 
 def rrf(result_lists: list[list[Document]], k: int = 60) -> list[Document]:
-    """Reciprocal Rank Fusion: score(doc) = sum over lists of 1 / (k + rank).
-    A doc ranked high in BOTH lists wins; a doc found by only one list still gets in."""
+    """Reciprocal Rank Fusion: score(doc) = sum over lists of 1 / (k + rank)."""
     scores: dict[str, float] = {}
     by_id: dict[str, Document] = {}
     for docs in result_lists:
@@ -182,7 +176,7 @@ _reranker: CrossEncoder | None = None
 
 
 def get_reranker() -> CrossEncoder:
-    """Loaded once and reused - the model takes a few seconds to load."""
+    """Load the cross-encoder once."""
     global _reranker
     if _reranker is None:
         _reranker = CrossEncoder(RERANKER_MODEL)
@@ -190,9 +184,7 @@ def get_reranker() -> CrossEncoder:
 
 
 def rerank(question: str, docs: list[Document], k: int) -> list[Document]:
-    """A cross-encoder reads (question, doc) TOGETHER and gives a relevance score.
-    Slower than embeddings (one forward pass per pair) but far more accurate - so we only
-    run it on a short candidate list (e.g. 20), never on the whole collection."""
+    """Score each (question, doc) pair with the cross-encoder and return the best k."""
     if not docs:
         return []
     scores = get_reranker().predict([(question, d.page_content) for d in docs])

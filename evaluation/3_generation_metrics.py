@@ -1,18 +1,7 @@
 """
-Generation metrics - given the retrieved docs, was the ANSWER good?
-
-    Faithfulness (own judge)  : gpt-6.1-sol splits the answer into claims and checks each one against
-                                the retrieved documents. score = supported claims / all claims
-    Faithfulness (RAGAS)      : same idea, RAGAS implementation
-    Answer Relevancy (RAGAS)  : does the answer actually address the question?
-    Context Precision (RAGAS) : are the retrieved docs that matter ranked at the top?
-    Context Recall (RAGAS)    : do the retrieved docs cover what the reference answer needs?
-
-Scored on in-scope questions only (an out-of-scope question has no contexts to be faithful to;
-refusals are measured separately by Refusal Accuracy).
-
-Run:  python evaluation/3_generation_metrics.py              (all versions with results)
-      python evaluation/3_generation_metrics.py v1           (one version)
+Generation metrics: own LLM-as-judge faithfulness (gpt-6.1-sol) plus RAGAS faithfulness,
+answer_relevancy, context_precision and context_recall. In-scope questions only.
+Run: python evaluation/3_generation_metrics.py [v1|v2_single|v2_multi]
 """
 import json
 import sys

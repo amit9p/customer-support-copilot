@@ -1,12 +1,8 @@
 """
-V1 - OFFLINE pipeline (runs once, before any questions are asked)
-
-    JSON file  -->  one Document per record  -->  embed  -->  Chroma collection "dandes_v1"
-
-Think of it like loading a warehouse: we put every policy/FAQ/ticket on a shelf
-(Chroma) with a label (metadata) so the online pipeline can find it quickly later.
-
-Run:  python v1_basic_rag/1_offline_pipeline.py
+V1 offline pipeline.
+Loads dandes_electronics_kb.json, makes one Document per record, embeds them and stores
+them in the Chroma collection 'dandes_v1'. Prints the document count (should be 50).
+Run: python v1_basic_rag/1_offline_pipeline.py
 """
 import sys
 from pathlib import Path
@@ -31,14 +27,14 @@ def load_documents() -> list[Document]:
 
     docs = []
     for rec in records:
-        # Text the model will search over. Title + content gives the embedding more context.
+        # title + content is what gets embedded
         text = f"{rec['title']}\n{rec['content']}"
 
         # Required metadata: id, doc_type + the 6 fields inside rec["metadata"].
         meta = {"id": rec["id"], "doc_type": rec["doc_type"]}
         for field in METADATA_FIELDS:
             value = rec["metadata"].get(field)
-            if value is not None:          # Chroma rejects None, so drop null fields
+            if value is not None:          # Chroma does not accept None values
                 meta[field] = value
 
         docs.append(Document(page_content=text, metadata=meta))
@@ -51,7 +47,7 @@ def main() -> None:
 
     embeddings = OpenAIEmbeddings(model=EMBEDDING_MODEL)
 
-    # Fresh start each run: delete the old collection so re-running never duplicates documents.
+    # delete the old collection so re-running does not duplicate documents
     store = Chroma(
         collection_name=V1_COLLECTION,
         embedding_function=embeddings,

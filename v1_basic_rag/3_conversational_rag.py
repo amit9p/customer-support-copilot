@@ -1,15 +1,8 @@
 """
-V1 - CONVERSATIONAL RAG (follow-up questions work)
-
-Problem: "What if the box is opened?" means nothing on its own - the retriever would
-search for "box opened" and miss that we were talking about laptops.
-
-Fix (two steps):
-  1. Rewrite the follow-up into a standalone question using the chat history
-        "What if the box is opened?"  -->  "Can an opened laptop box be returned?"
-  2. Run the normal online pipeline on the rewritten question.
-
-Run:  python v1_basic_rag/3_conversational_rag.py
+V1 conversational RAG.
+Same as the online pipeline, but keeps chat history. A follow-up like "What if the box is
+opened?" is first rewritten into a standalone question using the history, then searched.
+Run: python v1_basic_rag/3_conversational_rag.py
 """
 import sys
 from pathlib import Path

@@ -1,14 +1,9 @@
 """
-V2 technique 4 - QUERY TRANSFORMATION
-
-Customers (and support execs) ask vague questions. "My order hasn't come yet" could be about
-delivery times, tracking, failed delivery attempts or remote pincodes. Two fixes:
-
-  (A) Query rewriting   : LLM turns the vague question into one precise search query
-  (B) Multi-query       : LLM writes 3 different versions of the question, we search with each,
-                          and merge the result lists with RRF - covers more angles
-
-Run:  python v2_advanced_rag/4_query_transformation.py
+V2 technique 4: query transformation.
+(A) Query rewriting: the LLM rewrites a vague question into one clearer search query.
+(B) Multi-query: the LLM writes 3 variants, each is searched, results merged with RRF.
+Both demos print before vs after.
+Run: python v2_advanced_rag/4_query_transformation.py
 """
 import sys
 from pathlib import Path

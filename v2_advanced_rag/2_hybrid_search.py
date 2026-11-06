@@ -1,15 +1,8 @@
 """
-V2 technique 2 - HYBRID SEARCH (dense + BM25, merged with RRF)
-
-Dense search understands MEANING ("refund timing" ~ "how long until money is back")
-but is blind to exact tokens like "RR-004". BM25 is the opposite: dumb about meaning,
-great at exact words. Run both and merge the two ranked lists with Reciprocal Rank Fusion.
-
-    question --> dense top N  --\
-                                 >-- RRF merge --> top 5
-    question --> BM25  top N  --/
-
-Run:  python v2_advanced_rag/2_hybrid_search.py
+V2 technique 2: hybrid search.
+Dense (embedding) search and BM25 keyword search are run separately and merged with
+Reciprocal Rank Fusion. BM25 catches exact tokens such as policy codes (RR-004).
+Run: python v2_advanced_rag/2_hybrid_search.py
 """
 import sys
 from pathlib import Path
@@ -31,8 +24,7 @@ class HybridSearcher:
         dense = self.store.similarity_search(question, k=CANDIDATES, filter=filter)
         sparse = self.bm25.search(question, k=CANDIDATES)
         fused = rrf([dense, sparse])
-        # RRF rewards docs found by BOTH searchers, so a doc only BM25 found (even at rank 1) can
-        # fall out of the top 5. An exact ID match is a certainty, so it is pinned ahead of the fusion.
+        # exact-ID matches are pinned ahead of the fused list (RRF alone dropped RR-004, see report Q2)
         pinned = self.bm25.pinned(question)
         return (pinned + [d for d in fused if d not in pinned])[:k]
 

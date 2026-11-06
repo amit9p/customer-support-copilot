@@ -1,10 +1,6 @@
 """
-Shared settings for every script in this project.
-Keeps model names, paths and the API key in ONE place so each
-pipeline file only contains the RAG logic for its topic.
-
-Usage:
-    from config import OPENAI_API_KEY, LLM_MODEL, KB_FILE, CHROMA_DIR
+Settings shared by all scripts: API key (from .env), model names, paths, K=5,
+collection names and the fixed "I don't know" sentence.
 """
 from __future__ import annotations
 

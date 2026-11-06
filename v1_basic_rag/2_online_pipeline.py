@@ -1,12 +1,8 @@
 """
-V1 - ONLINE pipeline (runs every time a question is asked)
-
-    question  -->  embed  -->  top 5 similar documents from Chroma  -->  LLM writes answer + sources
-
-Like a librarian: find the 5 most relevant pages, hand them to the LLM, and the LLM
-answers ONLY from those pages (or says "I don't know").
-
-Run:  python v1_basic_rag/2_online_pipeline.py
+V1 online pipeline.
+Takes a question, retrieves the top 5 documents from 'dandes_v1' by embedding similarity,
+and asks the LLM to answer from those documents only, with source IDs.
+Run: python v1_basic_rag/2_online_pipeline.py
 """
 import sys
 from pathlib import Path
@@ -18,7 +14,7 @@ from config import TOP_K
 
 
 def retrieve(question: str, k: int = TOP_K):
-    """Dense (embedding) similarity search - the simplest form of retrieval."""
+    """Embedding similarity search."""
     return get_v1_store().similarity_search(question, k=k)
 
 

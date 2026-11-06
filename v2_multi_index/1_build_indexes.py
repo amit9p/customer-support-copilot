@@ -1,16 +1,8 @@
 """
-Multi-index OFFLINE step - split the 50 records into 4 Chroma collections by kind of knowledge,
-and build a BM25 (keyword) index for each one.
-
-    policy_index  : return_policy + shipping_policy   (10)  official rules, exact, latest wins
-    product_index : product_faq + known_issue         (20)  organised by product
-    order_index   : order_guide                        (6)  step-by-step processes
-    ticket_index  : resolved_ticket                   (14)  past cases, informal "problem -> fix"
-
-Why separate? Each index can be searched with the right expectations, and the router can skip
-indexes that can't contain the answer (fewer distractors for the reranker and the LLM).
-
-Run:  python v2_multi_index/1_build_indexes.py
+Multi-index build.
+Splits the 50 records into 4 Chroma collections (policy_index 10, product_index 20,
+order_index 6, ticket_index 14) and saves a BM25 index for each one.
+Run: python v2_multi_index/1_build_indexes.py
 """
 import pickle
 import sys
